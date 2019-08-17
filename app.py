@@ -1,10 +1,11 @@
 from flask import Flask
+import os
+
 app = Flask(__name__)
-port = int(os.environ["PATH"])
+port = os.environ.get('PORT')
 
 @app.route('/')
 def index():
    return '<html><body><h1>Hello World</h1></body></html>'
 
-if __name__ == '__main__':
-   app.run(port=port, host="0.0.0.0")
+app.run(port=port, host="0.0.0.0")
